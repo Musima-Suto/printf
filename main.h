@@ -19,4 +19,13 @@ typedef struct convert conver_t;
 int _printf(const char *format, ...);
 int parser(const char *format, conver_t f_list[], va_list arg_list);
 int _write_char(char);
+int print_char(va_list);
+int print_string(va_list);
+int print_percent(va_list);
+int print_integer(va_list);
+int unsigned_integer(va_list);
+
+unsigned int base_len(unsigned int, int);
+int print_unsgined_number(unsigned int);
+
 #endif /* MAIN_H*/
