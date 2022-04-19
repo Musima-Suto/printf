@@ -9,7 +9,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int chars_printed;
+	int printed_chars;
 	conver_t f_list[] = {
 		{"c", print_char},
 		{"s", print_char},
@@ -22,8 +22,8 @@ int _printf(const char *format, ...)
 
 	va_start(arg_list, format);
 	/*Calling parser function*/
-	chars_printed = parser(format, f_list, arg_list);
+	printed_chars = parser(format, f_list, arg_list);
 	va_end(arg_list);
-	return (chars_printed);
+	return (printed_chars);
 
 }
