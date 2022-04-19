@@ -9,9 +9,9 @@
  **/
 int parser(const char *format, cover_t f_list[], va_list arg_list)
 {
-	int i, j, r_val, chars_printed;
+	int i, j, r_val, printed_chars;
 
-	chars_printed = 0;
+	printed_chars = 0;
 
 	for (i = 0; format[i] != '\0', i++)
 	{
@@ -24,7 +24,7 @@ int parser(const char *format, cover_t f_list[], va_list arg_list)
 					r_val = f_list[j].f(arg_list);
 					if (r_val == -1)
 						return (-1);
-					chars_printed += r_val;
+					printed_chars += r_val;
 					break;
 				}
 			}
@@ -34,7 +34,7 @@ int parser(const char *format, cover_t f_list[], va_list arg_list)
 				{
 					_write_char(format[i]);
 					_write_char(format[i + 1]);
-					chars_printed = chars_printed + 2;
+					printed_chars = printed_chars + 2;
 				}
 				else
 					return (-1);
@@ -44,8 +44,8 @@ int parser(const char *format, cover_t f_list[], va_list arg_list)
 		else
 		{
 			_write_char(format[i]);
-			chars_printed++;
+			printed_chars++;
 		}
 	}
-	return (chars_printed);
+	return (printed_chars);
 }
